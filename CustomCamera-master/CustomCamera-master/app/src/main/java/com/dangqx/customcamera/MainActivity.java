@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
@@ -28,6 +29,7 @@ import android.util.Size;
 import android.view.SurfaceHolder;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.dangqx.customcamera.method.SetPreviewAndCapture;
@@ -92,11 +94,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         //为按钮绑定点击事件
-        Button picture = findViewById(R.id.btnTakePhoto);
-        Button change = findViewById(R.id.btnSwitch);
-        Button record = findViewById(R.id.record);
-        Button stopRecord = findViewById(R.id.stop);
-        Button zoom = findViewById(R.id.btn_zoom);
+        ImageButton picture = (ImageButton) findViewById(R.id.imageButtonZoomout);
+        ImageButton change = (ImageButton) findViewById(R.id.imageButtonPause);
+        ImageButton record = (ImageButton) findViewById(R.id.imageButtonStart);
+        ImageButton stopRecord = (ImageButton) findViewById(R.id.imageButtonStop);
+        ImageButton zoom = (ImageButton) findViewById(R.id.imageButtonZoomin);
         picture.setOnClickListener(this);
         change.setOnClickListener(this);
         record.setOnClickListener(this);
@@ -296,23 +298,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * 点击不同按钮的事件
      * @param v
      */
+    @SuppressLint("NonConstantResourceId")
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btnTakePhoto:
+            case R.id.imageButtonStop:
                 setPreviewAndCapture.takePhoto();
                 break;
-            case R.id.btnSwitch:
+            case R.id.imageButtonZoomin:
                 switchCamera();
                 break;
-            case R.id.record:
+            case R.id.imageButtonStart:
                 videoRecordUtils.startRecord(MainActivity.this,handler);
                 break;
-            case R.id.stop:
+            case R.id.imageButtonPause:
                 videoRecordUtils.stopRecord();
                 setPreviewAndCapture.startPreview();
-            case R.id.btn_zoom:
+            case R.id.imageButtonZoomout:
                 setPreviewAndCapture.setZoom();
                 break;
             default:
