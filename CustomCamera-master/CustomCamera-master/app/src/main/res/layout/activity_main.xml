@@ -1,24 +1,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center"
+        android:orientation="horizontal"
         >
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_margin="10dp">
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginHorizontal="@dimen/cardview_compat_inset_shadow"
                 >
                 <TextView
                     android:id="@+id/textViewSN"
@@ -35,9 +38,11 @@
                     android:textSize="12sp" />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginHorizontal="@dimen/cardview_compat_inset_shadow"
                 >
                 <TextView
                     android:id="@+id/textViewLo"
@@ -53,9 +58,11 @@
                     android:textSize="12sp" />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginHorizontal="@dimen/cardview_compat_inset_shadow"
                 >
                 <TextView
                     android:id="@+id/textViewDL"
@@ -68,19 +75,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Detailed location"
+
                     android:textSize="12sp" />
             </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginHorizontal="@dimen/cardview_compat_inset_shadow"
                 >
                 <TextView
                     android:id="@+id/textViewCN"
@@ -97,9 +100,11 @@
                     android:textSize="12sp" />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginHorizontal="@dimen/cardview_compat_inset_shadow"
                 >
                 <TextView
                     android:id="@+id/textViewRT"
@@ -115,9 +120,11 @@
                     android:textSize="12sp" />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginHorizontal="@dimen/cardview_compat_inset_shadow"
                 >
                 <TextView
                     android:id="@+id/textViewCo"
@@ -133,69 +140,81 @@
                     android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
-
-            <ImageButton
-                android:id="@+id/imageButtonStart"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                app:srcCompat="@mipmap/start"
-                android:layout_weight="1"
-                android:background="#00000000" />
-
-            <ImageButton
-                android:id="@+id/imageButtonPause"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                app:srcCompat="@mipmap/pause"
-                android:background="#00FFFFFF" />
-
-            <ImageButton
-                android:id="@+id/imageButtonStop"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                app:srcCompat="@mipmap/stop"
-                android:background="#00FFFFFF"
-                 />
-
-            <ImageButton
-                android:id="@+id/imageButtonZoomin"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="#00FFFFFF"
-                app:srcCompat="@mipmap/zoomin"
-                />
-
-            <ImageButton
-                android:id="@+id/imageButtonZoomout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="#00FFFFFF"
-                app:srcCompat="@mipmap/zoomout"
-                 />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_margin="10dp">
+            >
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
+
+                <ImageButton
+                    android:id="@+id/imageButtonStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    app:srcCompat="@mipmap/start"
+                    android:layout_weight="1"
+                    android:background="#00000000" />
+
+                <ImageButton
+                    android:id="@+id/imageButtonPause"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@mipmap/pause"
+                    android:background="#00FFFFFF" />
+
+                <ImageButton
+                    android:id="@+id/imageButtonStop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@mipmap/stop"
+                    android:background="#00FFFFFF"
+                    />
+
+                <ImageButton
+                    android:id="@+id/imageButtonZoomin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="#00FFFFFF"
+                    app:srcCompat="@mipmap/zoomin"
+                    />
+
+                <ImageButton
+                    android:id="@+id/imageButtonZoomout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="#00FFFFFF"
+                    app:srcCompat="@mipmap/zoomout"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10dp">
+
                 <TextView
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
@@ -206,25 +225,26 @@
 
                 <Spinner
                     android:id="@+id/spinner"
-                    android:layout_width="60dp"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:background="#DDDDDD"
-                    android:visibility="visible" />
+                    android:autofillHints="121231321"
+                    android:background="#DDDDDD" />
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Generate Inspection Form" />
             </LinearLayout>
-
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Generate Inspection Form" />
-        </LinearLayout>
         </LinearLayout>
 
-    <com.dangqx.customcamera.view.ResizeAbleSurfaceView
-        android:id="@+id/surfaceView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="500" />
+        <com.dangqx.customcamera.view.ResizeAbleSurfaceView
+            android:id="@+id/surfaceView"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+             />
+
+    </LinearLayout>
+
 
 </LinearLayout>
