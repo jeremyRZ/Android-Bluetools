@@ -3,7 +3,11 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
     <LinearLayout
         android:layout_margin="20dp"
         android:layout_width="match_parent"
@@ -15,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:dividerPadding="10dp"
             android:layout_margin="10dp">
             <LinearLayout
                 android:layout_weight="1"
@@ -37,6 +42,11 @@
                     android:hint="Site name"
                     android:textSize="12sp" />
             </LinearLayout>
+            <View
+                android:layout_width="1.5dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="50dp"
+                android:background="@android:color/darker_gray"/>
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -57,6 +67,11 @@
                     android:hint="Location"
                     android:textSize="12sp" />
             </LinearLayout>
+            <View
+                android:layout_width="1.5dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="50dp"
+                android:background="@android:color/darker_gray"/>
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -78,6 +93,11 @@
 
                     android:textSize="12sp" />
             </LinearLayout>
+            <View
+                android:layout_width="1.5dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="50dp"
+                android:background="@android:color/darker_gray"/>
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -99,6 +119,11 @@
                     android:hint="1st coupler No."
                     android:textSize="12sp" />
             </LinearLayout>
+            <View
+                android:layout_width="1.5dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="50dp"
+                android:background="@android:color/darker_gray"/>
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -119,6 +144,11 @@
                     android:hint="Rebar type"
                     android:textSize="12sp" />
             </LinearLayout>
+            <View
+                android:layout_width="1.5dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="50dp"
+                android:background="@android:color/darker_gray"/>
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -141,103 +171,122 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+    </androidx.cardview.widget.CardView>
     <LinearLayout
-        android:layout_margin="20dp"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
+
         <LinearLayout
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewImageButton"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="10dp">
+                android:layout_marginRight="10dp"
+               android:layout_marginLeft="10dp"
+                android:layout_weight="1">
 
-                <ImageButton
-                    android:id="@+id/imageButtonStart"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    app:srcCompat="@mipmap/start"
-                    android:layout_weight="1"
-                    android:background="#00000000" />
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
 
-                <ImageButton
-                    android:id="@+id/imageButtonPause"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@mipmap/pause"
-                    android:background="#00FFFFFF" />
+                    <ImageButton
+                        android:id="@+id/imageButtonStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        app:srcCompat="@mipmap/start" />
 
-                <ImageButton
-                    android:id="@+id/imageButtonStop"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@mipmap/stop"
-                    android:background="#00FFFFFF"
-                    />
+                    <ImageButton
+                        android:id="@+id/imageButtonPause"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="#00FFFFFF"
+                        app:srcCompat="@mipmap/pause" />
 
-                <ImageButton
-                    android:id="@+id/imageButtonZoomin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="#00FFFFFF"
-                    app:srcCompat="@mipmap/zoomin"
-                    />
+                    <ImageButton
+                        android:id="@+id/imageButtonStop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="#00FFFFFF"
+                        app:srcCompat="@mipmap/stop" />
 
-                <ImageButton
-                    android:id="@+id/imageButtonZoomout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="#00FFFFFF"
-                    app:srcCompat="@mipmap/zoomout"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
+                    <ImageButton
+                        android:id="@+id/imageButtonZoomin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="#00FFFFFF"
+                        app:srcCompat="@mipmap/zoomin" />
+
+                    <ImageButton
+                        android:id="@+id/imageButtonZoomout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="#00FFFFFF"
+                        app:srcCompat="@mipmap/zoomout" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewGenForm"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="10dp">
+                android:layout_margin="10dp"
 
-                <TextView
-                    android:id="@+id/textView12"
+                android:layout_weight="1">
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Please select video clip:"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
 
-                <Spinner
-                    android:id="@+id/spinner"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="121231321"
-                    android:background="#DDDDDD" />
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Generate Inspection Form" />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Please select video clip:"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                    <Spinner
+                        android:id="@+id/spinner"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="121231321"
+                        android:background="#DDDDDD" />
+
+                    <Button
+                        android:id="@+id/button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Generate Inspection Form" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
 
         <com.dangqx.customcamera.view.ResizeAbleSurfaceView
+            android:layout_margin="10dp"
             android:id="@+id/surfaceView"
             android:layout_weight="2"
             android:layout_width="0dp"
