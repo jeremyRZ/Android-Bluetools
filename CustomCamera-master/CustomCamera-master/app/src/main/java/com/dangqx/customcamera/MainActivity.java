@@ -11,13 +11,10 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
-import android.graphics.Rect;
 import android.hardware.camera2.CameraAccessException;
-import android.hardware.camera2.CameraCaptureSession;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CameraManager;
-import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.ImageReader;
 import android.os.Build;
@@ -26,10 +23,16 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.Log;
 import android.util.Size;
+import android.view.LayoutInflater;
 import android.view.SurfaceHolder;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ImageButton;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dangqx.customcamera.method.SetPreviewAndCapture;
@@ -42,7 +45,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     private SetPreviewAndCapture setPreviewAndCapture;
     private VideoRecordUtils videoRecordUtils;
@@ -60,6 +63,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private HandlerThread handlerThread;
     private Handler handler;
+
+    private Spinner spinnerSite;
+    private Spinner spinnerLoc;
+    private Spinner spinnerDetLoc;
+    private Spinner spinnerNoCoup;
+    private Spinner spinnerReb;
+    private Spinner spinnerCoupNum;
+
+
+    private String[] listSite;
+    private String[] listLoc;
+    private String[] listDetLoc;
+    private String[] listNoCoup;
+    private String[] listReb;
+    private String[] listCoupNum;
+    private ArrayList<String> list2;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -94,16 +113,66 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         //为按钮绑定点击事件
+        //正确顺序 Start Pause Stop ZoomIn ZoomOut
         ImageButton picture = (ImageButton) findViewById(R.id.imageButtonZoomout);
         ImageButton change = (ImageButton) findViewById(R.id.imageButtonPause);
         ImageButton record = (ImageButton) findViewById(R.id.imageButtonStart);
         ImageButton stopRecord = (ImageButton) findViewById(R.id.imageButtonStop);
         ImageButton zoom = (ImageButton) findViewById(R.id.imageButtonZoomin);
+
         picture.setOnClickListener(this);
         change.setOnClickListener(this);
         record.setOnClickListener(this);
         stopRecord.setOnClickListener(this);
         zoom.setOnClickListener(this);
+
+//        initView();
+        spinnerSite = (Spinner) findViewById(R.id.spinnerSite);
+        spinnerLoc = (Spinner) findViewById(R.id.spinnerLoc);
+        spinnerDetLoc = (Spinner) findViewById(R.id.spinnerDetLoc);
+        spinnerNoCoup = (Spinner) findViewById(R.id.spinnerNoCoup);
+        spinnerReb = (Spinner) findViewById(R.id.spinnerReb);
+        spinnerCoupNum = (Spinner) findViewById(R.id.spinnerCoupNum);
+//        initData();
+        listSite = new String[]{"Zone C 14105D TAWMC","Zone B 14105D TAWMC","Zone A 14105D TAWMC"};
+        listLoc = new String[]{"H. 支柱(Stanchion) B3 - Portion A1","H. 支柱(Stanchion) B3 - Portion A2","H. 支柱(Stanchion) B3 - Portion A3"};
+        listDetLoc = new String[]{"NC101","NC102","NC103","NC104","NC105","NC106"};
+        listNoCoup = new String[]{"T1","T2","T5","B2","B5"};
+        listReb = new String[]{"Y40","Y60","Y70"};
+        listCoupNum = new String[]{"32","76","51"};
+
+        ArrayAdapter<String> adapterSite=new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, listSite);
+        ArrayAdapter<String> adapterLoc=new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, listLoc);
+        ArrayAdapter<String> adapterDetLoc=new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, listDetLoc);
+        ArrayAdapter<String> adapterNoCoup=new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, listNoCoup);
+        ArrayAdapter<String> adapterReb=new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, listReb);
+        ArrayAdapter<String> adapterCoupNum=new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, listCoupNum);
+
+        adapterSite.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterLoc.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterDetLoc.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterNoCoup.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterReb.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterCoupNum.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinnerSite.setAdapter(adapterSite);
+        spinnerLoc.setAdapter(adapterLoc);
+        spinnerDetLoc.setAdapter(adapterDetLoc);
+        spinnerNoCoup.setAdapter(adapterNoCoup);
+        spinnerReb.setAdapter(adapterReb);
+        spinnerCoupNum.setAdapter(adapterCoupNum);
+//        list2 = new ArrayList<>();
+//        list2.add("Android");
+//        list2.add("IOS");
+//        list2.add("H5");
+//        spinner3.setAdapter(new MyAdapter());
+//        initListener();
+        spinnerSite.setOnItemSelectedListener(this);
+        spinnerLoc.setOnItemSelectedListener(this);
+        spinnerDetLoc.setOnItemSelectedListener(this);
+        spinnerNoCoup.setOnItemSelectedListener(this);
+        spinnerReb.setOnItemSelectedListener(this);
+        spinnerCoupNum.setOnItemSelectedListener(this);
     }
 
     /**
@@ -321,5 +390,85 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 break;
         }
+    }
+
+    /**
+     * Spinner Data （HardCode）
+     */
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        switch (parent.getId()){
+//            case R.id.spinner1:
+//                String[] letter = getResources().getStringArray(R.array.letter);
+//                Log.i("spinner1点击------",letter[position]);
+//                break;
+            case R.id.spinnerSite:
+                Log.i("spinnerSite------",listSite[position]);
+                break;
+            case R.id.spinnerLoc:
+                Log.i("spinnerLoc------",listLoc[position]);
+                break;
+            case R.id.spinnerDetLoc:
+                Log.i("spinnerDetLoc------",listDetLoc[position]);
+                break;
+            case R.id.spinnerNoCoup:
+                Log.i("spinnerNoCoup------",listNoCoup[position]);
+                break;
+            case R.id.spinnerReb:
+                Log.i("spinnerReb------",listReb[position]);
+                break;
+            case R.id.spinnerCoupNum:
+                Log.i("spinnerCoupNum------",listCoupNum[position]);
+                break;
+//            case R.id.spinner3:
+//                Log.i("spinner3点击------",list2.get(position));
+//                break;
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    /**
+     * 自定义的Adapter
+     */
+    private class MyAdapter extends BaseAdapter {
+
+        @Override
+        public int getCount() {
+            return list2.size();
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup viewGroup) {
+            ViewHolder holder ;
+            if(convertView==null){
+                convertView = LayoutInflater.from(MainActivity.this).inflate(R.layout.item_text, viewGroup, false);
+                holder = new ViewHolder();
+                holder.itemText= (TextView) convertView.findViewById(R.id.item_text);
+                convertView.setTag(holder);
+            }else{
+                holder = (ViewHolder) convertView.getTag();
+            }
+            holder.itemText.setText(list2.get(position));
+            return convertView;
+        }
+    }
+    class ViewHolder {
+        TextView itemText;
     }
 }

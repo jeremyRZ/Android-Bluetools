@@ -32,20 +32,24 @@
                     android:id="@+id/textViewSN"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Please specify"
+                    android:text="Select site name"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
                     android:textColor="@color/black" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputEditTextSN"
+                <Spinner
+                    android:id="@+id/spinnerSite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Site name"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
                     android:textSize="12sp" />
             </LinearLayout>
             <View
                 android:layout_width="1.5dp"
                 android:layout_height="match_parent"
-                android:layout_marginRight="50dp"
+                android:layout_margin="10dp"
                 android:background="@android:color/darker_gray"/>
             <LinearLayout
                 android:layout_weight="1"
@@ -58,19 +62,23 @@
                     android:id="@+id/textViewLo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Please specify"
-                    android:textColor="@color/black" />
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputEditTextLo"
+                    android:text="Select Location"
+                    android:layout_gravity="center"
+                    android:textColor="@color/black"
+                    android:gravity="center_horizontal" />
+                <Spinner
+                    android:id="@+id/spinnerLoc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Location"
+                    android:hint="Site name"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
                     android:textSize="12sp" />
             </LinearLayout>
             <View
                 android:layout_width="1.5dp"
                 android:layout_height="match_parent"
-                android:layout_marginRight="50dp"
+                android:layout_margin="10dp"
                 android:background="@android:color/darker_gray"/>
             <LinearLayout
                 android:layout_weight="1"
@@ -83,20 +91,24 @@
                     android:id="@+id/textViewDL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Please specify"
-                    android:textColor="@color/black" />
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputEditTextDL"
+                    android:text="Detailed location"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:gravity="center_horizontal" />
+                <Spinner
+                    android:id="@+id/spinnerDetLoc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Detailed location"
-
+                    android:hint="Site name"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
                     android:textSize="12sp" />
             </LinearLayout>
             <View
                 android:layout_width="1.5dp"
                 android:layout_height="match_parent"
-                android:layout_marginRight="50dp"
+                android:layout_margin="10dp"
                 android:background="@android:color/darker_gray"/>
             <LinearLayout
                 android:layout_weight="1"
@@ -109,20 +121,24 @@
                     android:id="@+id/textViewCN"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Please specify"
+                    android:text="1st coupler No."
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
                     android:textColor="@color/black" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputEditTextCN"
+                <Spinner
+                    android:id="@+id/spinnerNoCoup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="1st coupler No."
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
                     android:textSize="12sp" />
             </LinearLayout>
             <View
                 android:layout_width="1.5dp"
                 android:layout_height="match_parent"
-                android:layout_marginRight="50dp"
+                android:layout_margin="10dp"
                 android:background="@android:color/darker_gray"/>
             <LinearLayout
                 android:layout_weight="1"
@@ -135,19 +151,24 @@
                     android:id="@+id/textViewRT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Please specify"
+                    android:text="Select Rebar type"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
                     android:textColor="@color/black" />
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputEditTextRT"
+                <Spinner
+                    android:id="@+id/spinnerReb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Rebar type"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
                     android:textSize="12sp" />
             </LinearLayout>
             <View
                 android:layout_width="1.5dp"
                 android:layout_height="match_parent"
-                android:layout_marginRight="50dp"
+                android:layout_margin="10dp"
                 android:background="@android:color/darker_gray"/>
             <LinearLayout
                 android:layout_weight="1"
@@ -160,14 +181,36 @@
                     android:id="@+id/textViewCo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Please specify"
+                    android:text="No. of couplers"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:textColor="@color/black" />
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/textInputEditTextCo"
+                <Spinner
+                    android:id="@+id/spinnerCoupNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="No. of couplers"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
                     android:textSize="12sp" />
+            </LinearLayout>
+            <View
+                android:layout_width="1.5dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@android:color/darker_gray"/>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/cardview_compat_inset_shadow"
+                >
+                <Button
+                    android:id="@+id/buttonSendData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Send Data"
+                    android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -270,8 +313,8 @@
                         android:textSize="20sp" />
 
                     <Spinner
-                        android:id="@+id/spinner"
-                        android:layout_width="fill_parent"
+                        android:id="@+id/spinnerForm"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:autofillHints="121231321"
                         android:background="#DDDDDD" />
