@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Spinner spinnerNoCoup;
     private Spinner spinnerReb;
     private Spinner spinnerCoupNum;
-
+    private Spinner spinnerSelecVideo;
 
     private String[] listSite;
     private String[] listLoc;
@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String[] listNoCoup;
     private String[] listReb;
     private String[] listCoupNum;
+    private String[] listSelecVideo;
     private ArrayList<String> list2;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -133,6 +134,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         spinnerNoCoup = (Spinner) findViewById(R.id.spinnerNoCoup);
         spinnerReb = (Spinner) findViewById(R.id.spinnerReb);
         spinnerCoupNum = (Spinner) findViewById(R.id.spinnerCoupNum);
+        spinnerSelecVideo = (Spinner) findViewById(R.id.spinnerSelectVideo);
 //        initData();
         listSite = new String[]{"Zone C 14105D TAWMC","Zone B 14105D TAWMC","Zone A 14105D TAWMC"};
         listLoc = new String[]{"H. 支柱(Stanchion) B3 - Portion A1","H. 支柱(Stanchion) B3 - Portion A2","H. 支柱(Stanchion) B3 - Portion A3"};
@@ -140,6 +142,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         listNoCoup = new String[]{"T1","T2","T5","B2","B5"};
         listReb = new String[]{"Y40","Y60","Y70"};
         listCoupNum = new String[]{"32","76","51"};
+        listSelecVideo = new String[]{"Video1","Video2","Video3"};
 
         ArrayAdapter<String> adapterSite=new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, listSite);
         ArrayAdapter<String> adapterLoc=new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, listLoc);
@@ -147,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ArrayAdapter<String> adapterNoCoup=new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, listNoCoup);
         ArrayAdapter<String> adapterReb=new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, listReb);
         ArrayAdapter<String> adapterCoupNum=new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, listCoupNum);
+        ArrayAdapter<String> adapterSelectVideo=new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, listSelecVideo);
 
         adapterSite.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapterLoc.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -154,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         adapterNoCoup.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapterReb.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapterCoupNum.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterSelectVideo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerSite.setAdapter(adapterSite);
         spinnerLoc.setAdapter(adapterLoc);
@@ -161,6 +166,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         spinnerNoCoup.setAdapter(adapterNoCoup);
         spinnerReb.setAdapter(adapterReb);
         spinnerCoupNum.setAdapter(adapterCoupNum);
+        spinnerSelecVideo.setAdapter(adapterSelectVideo);
 //        list2 = new ArrayList<>();
 //        list2.add("Android");
 //        list2.add("IOS");
@@ -173,6 +179,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         spinnerNoCoup.setOnItemSelectedListener(this);
         spinnerReb.setOnItemSelectedListener(this);
         spinnerCoupNum.setOnItemSelectedListener(this);
+        spinnerSelecVideo.setOnItemSelectedListener(this);
     }
 
     /**
@@ -421,6 +428,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.spinnerCoupNum:
                 Log.i("spinnerCoupNum------",listCoupNum[position]);
+                break;
+            case R.id.spinnerSelectVideo:
+                Log.i("spinnerCoupNum------",listSelecVideo[position]);
                 break;
 //            case R.id.spinner3:
 //                Log.i("spinner3点击------",list2.get(position));
